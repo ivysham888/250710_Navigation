@@ -9,16 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                Text("This is the root view 🌳")
+                NavigationLink(destination: Text("You've arrvied to the second view!")) {
+                    Text("Click me!")
+                }
+                NavigationLink(destination: SecondView()) {
+                    Text("Click me again!")
+                }
+                .foregroundColor(.red)
+                
+                
+//                 NavigationLink() {
+//                    SecondView()
+//                 } label: {
+//                    Text("Click me :)")
+//                 }
+//                 .foregroundColor(.green)
+                 
+                
+                
+            }
+            .navigationTitle("Home")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarHidden(false)
         }
-        .padding()
     }
 }
-
 #Preview {
     ContentView()
 }
